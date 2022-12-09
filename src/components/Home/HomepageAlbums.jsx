@@ -17,10 +17,14 @@ export default function HomepageAlbums() {
   return (
     <div className="cards-container d-flex flex-wrap" id="albumsRow">
       <span className="see-all">See All</span>
-      {homepageAlbums.slice(0, 12).map((album) => (
+      {homepageAlbums.slice(0, 7).map((album) => (
         <div className="card mb-3" key={album.id}>
           <div className="img-container">
-            <Image src={album.album.cover_medium} alt="" />
+            <Image
+              src={album.album.cover_medium}
+              className="albumSectionImage"
+              alt=""
+            />
           </div>
           <div className="card-details">
             <p className="title">{album.album.title}</p>
