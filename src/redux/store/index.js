@@ -7,8 +7,8 @@ const bigReducer = combineReducers({
   playlist: playlistReducer
 })
 
-const store = configureStore({
+export const store = configureStore({
   reducer: bigReducer
 })
 
-export default store
+// export default store

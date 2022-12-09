@@ -11,10 +11,11 @@ export const removeFromPlaylist = (i) => {
 
 export const getPillsAction = () => {
   const baseEndPoint =
-    "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem"
+    "https://striveschool-api.herokuapp.com/api/deezer/search?q=eminem"
   const options = {
     headers: {
-      "X-RapidAPI-Key": "ab2594bb9cmsh5be1c87d88bb0c1p112766jsn50e27924ed47",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzczYTZmMTNhN2ZjNDAwMTU5N2VjMzQiLCJpYXQiOjE2Njg1MjM3NjIsImV4cCI6MTY2OTczMzM2Mn0.hKzzFuHNrYleYqYAzaHfYBmGfdU02Ymm8H5qzgZKO88",
       "Content-Type": "application/json"
     }
   }
@@ -25,12 +26,12 @@ export const getPillsAction = () => {
       let resp = await fetch(baseEndPoint, options)
       if (resp.ok) {
         let data = await resp.json()
-        const fetchedPillsData = data
+        const setTrackPills = data
 
-        console.log(fetchedPillsData)
+        console.log(setTrackPills)
         dispatch({
           type: GET_PILLS_CONTENT,
-          payload: fetchedPillsData
+          payload: setTrackPills
         })
       } else {
         console.log("error")

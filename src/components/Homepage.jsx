@@ -45,8 +45,8 @@ export default function Homepage() {
 
       <div className="welcome-tracks">
         <h1>Good Morning</h1>
-        <div className="track-pills" id="pillsRow">
-          <PillsRow />{" "}
+        <div className="track-pills d-flex flex-row" id="pillsRow">
+          <PillsRow />
         </div>
       </div>
 
