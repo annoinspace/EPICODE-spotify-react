@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Form } from "react-bootstrap"
 import { useDispatch } from "react-redux"
+import { getPillsAction } from "../redux/actions"
 
 const SearchbarNav = () => {
   const [query, setQuery] = useState("")
@@ -13,7 +14,7 @@ const SearchbarNav = () => {
   }
 
   return (
-    <Form onSubmit={console.log("submitted")}>
+    <Form onSubmit={dispatch(getPillsAction(query))}>
       <Form.Control
         type="search"
         value={query}

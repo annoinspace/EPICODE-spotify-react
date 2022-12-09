@@ -20,29 +20,49 @@ const options = {
     "Content-Type": "application/json"
   }
 }
-export const getPillsAction = () => {
+
+export const getPillsAction = (query) => {
   return async (dispatch) => {
     console.log(
       "----------------fetching TrackPills from api---------------------"
     )
 
-    try {
-      let query = `high`
-      let resp = await fetch(baseEndPoint + query, options)
-      if (resp.ok) {
-        let data = await resp.json()
-        let setTrackPills = data.data
+    if (query) {
+      try {
+        let resp = await fetch(baseEndPoint + query, options)
+        if (resp.ok) {
+          let data = await resp.json()
+          let setTrackPills = data.data
 
-        console.log("setTrackPills", setTrackPills)
-        dispatch({
-          type: GET_PILLS_CONTENT,
-          payload: setTrackPills
-        })
-      } else {
-        console.log("error")
+          console.log("setTrackPills", setTrackPills)
+          dispatch({
+            type: GET_PILLS_CONTENT,
+            payload: setTrackPills
+          })
+        } else {
+          console.log("error")
+        }
+      } catch (error) {
+        console.log(error)
       }
-    } catch (error) {
-      console.log(error)
+    } else {
+      try {
+        let resp = await fetch(baseEndPoint + `high`, options)
+        if (resp.ok) {
+          let data = await resp.json()
+          let setTrackPills = data.data
+
+          console.log("setTrackPills", setTrackPills)
+          dispatch({
+            type: GET_PILLS_CONTENT,
+            payload: setTrackPills
+          })
+        } else {
+          console.log("error")
+        }
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
@@ -100,3 +120,5 @@ export const getTopListenedTracksAction = () => {
     }
   }
 }
+
+// export const searchTracksAction = () =>
