@@ -13,6 +13,7 @@ export default function TopListenedTracks() {
   useEffect(() => {
     dispatch(getTopListenedTracksAction())
     console.log("-----TopTracks again-------", topTracks)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

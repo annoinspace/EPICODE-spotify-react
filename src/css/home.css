@@ -9,9 +9,11 @@
   --blue: #4688d7;
 }
 
-* {
-  margin: 0;
+*,
+*::before,
+*::after {
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -629,12 +631,13 @@ body {
     padding: 20px;
   }
 
-  .cards-container .card .card-details .title {
+  .album-title-home {
     font-size: 20px;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: red;
   }
 
   .cards-container .card .card-details .artist {
@@ -699,12 +702,11 @@ body {
 
   .container {
     width: 1200px;
-    background-color: #1a1919a8;
+
     position: relative;
     height: 100%;
     margin-left: 250px;
     padding-bottom: 120px;
-    background-image: linear-gradient(rgba(255, 0, 0, 0.2) 10%, #1a1919a8 30%);
   }
 
   /* .container::after {
@@ -891,6 +893,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 12%;
+    height: auto;
     background-color: rgba(119, 119, 119, 0.075);
     padding: 15px;
     border-radius: 5px;

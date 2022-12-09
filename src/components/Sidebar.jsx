@@ -1,6 +1,7 @@
 import React from "react"
 import { Image } from "react-bootstrap"
 import spotifyLogo from "../assets/spotify-logo.png"
+import SearchbarNav from "./SearchbarNav"
 
 export default function Sidebar() {
   return (
@@ -16,15 +17,7 @@ export default function Sidebar() {
           </li>
 
           <li>
-            <a href="search">
-              <span className="fa fa-search"></span>
-              <input
-                type="text"
-                className="search-field"
-                id="searchField"
-                placeholder="Search artists/tracks"
-              />
-            </a>
+            <SearchbarNav />
           </li>
 
           <li>

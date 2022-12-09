@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react"
 import { Image } from "react-bootstrap"
-// import Pill from "./Pill"
+
 import { useSelector, useDispatch } from "react-redux"
 
 import { getPillsAction } from "../../redux/actions"

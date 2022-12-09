@@ -12,6 +12,7 @@ export default function HomepageAlbums() {
   useEffect(() => {
     dispatch(getHomepageAlbumsAction())
     console.log("-----homepageAlbums again-------", homepageAlbums)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -26,9 +27,9 @@ export default function HomepageAlbums() {
               alt=""
             />
           </div>
-          <div class="album-content">
+          <div className="album-content">
             <div className="text-container">
-              <p className="title">{album.album.title}</p>
+              <p className="album-title-home">{album.album.title}</p>
               <p className="artist">{album.artist.name}</p>
             </div>
           </div>
