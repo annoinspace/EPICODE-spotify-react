@@ -1,6 +1,7 @@
 import React from "react"
 import { Image } from "react-bootstrap"
 import PillsRow from "./PillsRow"
+import HomepageAlbums from "./HomepageAlbums"
 
 export default function Homepage() {
   return (
@@ -52,9 +53,7 @@ export default function Homepage() {
 
       <div className="albums-row">
         <h2 className="heading">Recommended Albums</h2>
-        <div className="cards-container" id="albumsRow">
-          <span className="see-all">See All</span>
-        </div>
+        <HomepageAlbums />
       </div>
 
       <div className="tracks-row">

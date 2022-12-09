@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import { Image } from "react-bootstrap"
 // import Pill from "./Pill"
 import { useSelector, useDispatch } from "react-redux"
 
-import { getPillsAction } from "../redux/actions"
+import { getPillsAction } from "../../redux/actions"
 
 export default function PillsRow() {
   let pills = useSelector((state) => state.pills.pillsListFromFetch)
   console.log("-----pills-------", pills)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
