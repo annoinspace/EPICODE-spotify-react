@@ -22,17 +22,19 @@ export const getPillsAction = () => {
 
   return async (dispatch, getState) => {
     console.log("----------------fetching from api---------------------")
+    console.log("--------state before", getState)
     try {
       let resp = await fetch(baseEndPoint, options)
       if (resp.ok) {
         let data = await resp.json()
-        const setTrackPills = data
+        let setTrackPills = data.data
 
-        console.log(setTrackPills)
+        console.log("setTrackPills", setTrackPills)
         dispatch({
           type: GET_PILLS_CONTENT,
           payload: setTrackPills
         })
+        console.log("--------state after", getState)
       } else {
         console.log("error")
       }

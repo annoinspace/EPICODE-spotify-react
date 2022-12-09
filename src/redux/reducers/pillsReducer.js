@@ -1,7 +1,7 @@
 import { GET_PILLS_CONTENT } from "../actions"
 
 const initialState = {
-  pillsList: []
+  pillsListFromFetch: []
 }
 
 const pillsReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const pillsReducer = (state = initialState, action) => {
     case GET_PILLS_CONTENT:
       return {
         ...state,
-        pillsList: action.payload
+        pillsListFromFetch: action.payload
       }
 
     default:
