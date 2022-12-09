@@ -2,6 +2,7 @@ import React from "react"
 import { Image } from "react-bootstrap"
 import PillsRow from "./PillsRow"
 import HomepageAlbums from "./HomepageAlbums"
+import TopListenedTracks from "./TopListenedTracks"
 
 export default function Homepage() {
   return (
@@ -61,9 +62,7 @@ export default function Homepage() {
         <p className="sub-heading">
           Discover some of the highest rated artists.
         </p>
-        <div className="cards-container" id="tracksRow">
-          <span className="see-all">See All</span>
-        </div>
+        <TopListenedTracks />
       </div>
     </div>
   )

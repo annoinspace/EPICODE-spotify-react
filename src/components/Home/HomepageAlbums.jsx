@@ -26,9 +26,11 @@ export default function HomepageAlbums() {
               alt=""
             />
           </div>
-          <div className="card-details">
-            <p className="title">{album.album.title}</p>
-            {/* <a href={artist.html?id={album.artist.id}}" class="artist">${item.artist.name}</a> */}
+          <div class="album-content">
+            <div className="text-container">
+              <p className="title">{album.album.title}</p>
+              <p className="artist">{album.artist.name}</p>
+            </div>
           </div>
         </div>
       ))}

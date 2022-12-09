@@ -2,6 +2,7 @@ export const GET_PILLS_CONTENT = "GET_PILLS_CONTENT"
 export const ADD_TO_PLAYLIST = "ADD_TO_PLAYLIST"
 export const REMOVE_FROM_PLAYLIST = "REMOVE_FROM_PLAYLIST"
 export const GET_HOMEPAGE_ALBUMS = "GET_HOMEPAGE_ALBUMS"
+export const GET_TOP_LISTENED_TRACKS = "GET_TOP_LISTENED_TRACKS"
 
 export const addToPlaylist = (data) => {
   return { type: "ADD_TO_PLAYLIST", payload: data }
@@ -63,6 +64,33 @@ export const getHomepageAlbumsAction = () => {
         dispatch({
           type: GET_HOMEPAGE_ALBUMS,
           payload: setHomepageAlbums
+        })
+      } else {
+        console.log("error")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const getTopListenedTracksAction = () => {
+  return async (dispatch) => {
+    console.log(
+      "----------------fetching Top Tracks from api---------------------"
+    )
+
+    try {
+      let query = `back`
+      let resp = await fetch(baseEndPoint + query, options)
+      if (resp.ok) {
+        let data = await resp.json()
+        let setTopListenedTracks = data.data
+
+        console.log("setTopListenedTracks", setTopListenedTracks)
+        dispatch({
+          type: GET_TOP_LISTENED_TRACKS,
+          payload: setTopListenedTracks
         })
       } else {
         console.log("error")
