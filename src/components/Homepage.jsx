@@ -1,64 +1,69 @@
 import React from "react"
 import { Image } from "react-bootstrap"
+import PillsRow from "./PillsRow"
 
 export default function Homepage() {
   return (
-    <div class="container">
-      <div class="top-nav">
-        <div class="navigation-btns">
-          <div class="previous">
+    <div className="container">
+      <div className="top-nav">
+        <div className="navigation-btns">
+          <div className="previous">
             <Image src="./assets/chevron-left.svg" alt="" />
           </div>
-          <div class="next">
+          <div className="next">
             <Image src="./assets/chevron-right.svg" alt="" />
           </div>
         </div>
-        <div class="account-info">
-          <div class="img-container">
+        <div className="account-info">
+          <div className="img-container">
             <Image src="./assets/profile.jpg" alt="" />
           </div>
-          <span class="account-name">Tyler Swan Marshall</span>
+          <span className="account-name">Tyler Swan Marshall</span>
         </div>
       </div>
 
-      <div class="mobile-top-nav">
-        <h1 class="heading">Good Morning</h1>
-        <div class="menu">
-          <div class="icon-container bell">
-            <Image class="icon" src="./assets/bell.svg" alt="" />
-            <div class="circle"></div>
+      <div className="mobile-top-nav">
+        <h1 className="heading">Good Morning</h1>
+        <div className="menu">
+          <div className="icon-container bell">
+            <Image className="icon" src="./assets/bell.svg" alt="" />
+            <div className="circle"></div>
           </div>
-          <div class="icon-container">
-            <Image class="icon" src="./assets/clock.svg" alt="" />
+          <div className="icon-container">
+            <Image className="icon" src="./assets/clock.svg" alt="" />
           </div>
-          <div class="icon-container">
-            <Image class="icon" src="./assets/settings.svg" alt="" />
+          <div className="icon-container">
+            <Image className="icon" src="./assets/settings.svg" alt="" />
           </div>
         </div>
       </div>
 
-      <div class="mobile-categories-banner">
-        <span class="">Music</span>
-        <span class="">Podcasts</span>
+      <div className="mobile-categories-banner">
+        <span className="">Music</span>
+        <span className="">Podcasts</span>
       </div>
 
-      <div class="welcome-tracks">
+      <div className="welcome-tracks">
         <h1>Good Morning</h1>
-        <div class="track-pills" id="pillsRow"></div>
-      </div>
-
-      <div class="albums-row">
-        <h2 class="heading">Recommended Albums</h2>
-        <div class="cards-container" id="albumsRow">
-          <span class="see-all">See All</span>
+        <div className="track-pills" id="pillsRow">
+          <PillsRow />{" "}
         </div>
       </div>
 
-      <div class="tracks-row">
-        <h2 class="heading">Top Listened Tracks</h2>
-        <p class="sub-heading">Discover some of the highest rated artists.</p>
-        <div class="cards-container" id="tracksRow">
-          <span class="see-all">See All</span>
+      <div className="albums-row">
+        <h2 className="heading">Recommended Albums</h2>
+        <div className="cards-container" id="albumsRow">
+          <span className="see-all">See All</span>
+        </div>
+      </div>
+
+      <div className="tracks-row">
+        <h2 className="heading">Top Listened Tracks</h2>
+        <p className="sub-heading">
+          Discover some of the highest rated artists.
+        </p>
+        <div className="cards-container" id="tracksRow">
+          <span className="see-all">See All</span>
         </div>
       </div>
     </div>

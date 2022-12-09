@@ -6,7 +6,7 @@ export default function MusicPlayer() {
     <div className="music-player">
       <div className="album-details">
         <Image
-          class="album-artwork"
+          className="album-artwork"
           src="https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png"
         />
         <div className="album-text">
