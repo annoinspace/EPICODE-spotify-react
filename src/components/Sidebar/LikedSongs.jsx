@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { likeButtonAction, unlikeButtonAction } from "../../redux/actions"
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
+import { FiTrash2 } from "react-icons/fi"
 
 export default function LikedSongs() {
   const likedSongs = useSelector((state) => state.likedButtonIndicator.liked)
@@ -16,19 +16,12 @@ export default function LikedSongs() {
           <li key={i} className="d-flex justify-content-between">
             {track.title}
             <span>
-              {likedSongs.includes(track) ? (
+              {likedSongs.includes(track) && (
                 <span
                   className="ml-auto mr-2"
                   onClick={() => dispatch(unlikeButtonAction(track))}
                 >
-                  <AiFillHeart />
-                </span>
-              ) : (
-                <span
-                  className="ml-auto mr-2"
-                  onClick={() => dispatch(likeButtonAction(track))}
-                >
-                  <AiOutlineHeart />
+                  <FiTrash2 />
                 </span>
               )}
             </span>
