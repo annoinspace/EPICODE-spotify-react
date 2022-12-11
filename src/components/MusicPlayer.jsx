@@ -1,6 +1,7 @@
 import React from "react"
 import { Image } from "react-bootstrap"
 import { useSelector } from "react-redux"
+import albumImage from "../assets/Zion_(Official_Album_Cover)_by_Hillsong_United.png"
 
 export default function MusicPlayer() {
   let currentTrack = useSelector((state) => state.playSong.song)
@@ -8,10 +9,17 @@ export default function MusicPlayer() {
   return (
     <div className="music-player">
       <div className="album-details">
-        <Image className="album-artwork" src={currentTrack.album.cover} />
+        <Image
+          className="album-artwork"
+          src={
+            currentTrack.length === 0 ? albumImage : currentTrack.album.cover
+          }
+        />
         <div className="album-text">
-          <h4>{currentTrack.title}</h4>
-          <h5>{currentTrack.artist.name}</h5>
+          <h4>
+            {currentTrack.length === 0 ? "Select a track" : currentTrack.title}
+          </h4>
+          <h5>{currentTrack.length === 0 ? null : currentTrack.artist.name}</h5>
         </div>
         <div className="icons">
           <i className="bi bi-heart"></i>

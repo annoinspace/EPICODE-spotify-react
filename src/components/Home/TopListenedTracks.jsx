@@ -1,12 +1,19 @@
 import React, { useEffect } from "react"
 import { Image } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { getTopListenedTracksAction } from "../../redux/actions"
-
+import {
+  getTopListenedTracksAction,
+  likeButtonAction,
+  unlikeButtonAction,
+  playButtonAction
+} from "../../redux/actions"
+import { BsPlayCircleFill } from "react-icons/bs"
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 export default function TopListenedTracks() {
   let topTracks = useSelector(
     (state) => state.topTracks.topListenedTracksFromFetch
   )
+  let likedSongs = useSelector((state) => state.likedButtonIndicator.liked)
 
   const dispatch = useDispatch()
 
@@ -26,6 +33,33 @@ export default function TopListenedTracks() {
           </div>
           <div className="card-details">
             <p className="title ">{track.title}</p>
+          </div>
+          <div>
+            {" "}
+            <span className="ml-auto mr-2 d-inline-block">
+              {" "}
+              <span>
+                <BsPlayCircleFill
+                  className="play-white pointer mr-2"
+                  onClick={() => dispatch(playButtonAction(track))}
+                />
+              </span>
+              {likedSongs.includes(track) ? (
+                <span>
+                  <AiFillHeart
+                    className="pointer ml-2"
+                    onClick={() => dispatch(unlikeButtonAction(track))}
+                  />
+                </span>
+              ) : (
+                <span>
+                  <AiOutlineHeart
+                    className="pointer ml-2"
+                    onClick={() => dispatch(likeButtonAction(track))}
+                  />
+                </span>
+              )}
+            </span>
           </div>
         </div>
       ))}
