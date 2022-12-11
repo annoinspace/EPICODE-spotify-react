@@ -28,12 +28,19 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-a {
+a,
+.sidebar-list {
   color: var(--grey);
   text-decoration: none;
 }
 
-a:hover {
+.pill-text {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+a:hover,
+.sidebar-list:hover {
   color: var(--sand);
 }
 

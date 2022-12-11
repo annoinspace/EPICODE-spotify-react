@@ -1,23 +1,19 @@
 export const GET_PILLS_CONTENT = "GET_PILLS_CONTENT"
-export const ADD_TO_LIKEDLIST = "ADD_TO_LIKEDLIST"
-export const REMOVE_FROM_LIKEDLIST = "REMOVE_FROM_LIKEDLIST"
+export const PLAY_BUTTON_CLICKED = "PLAY_BUTTON_CLICKED"
 export const GET_HOMEPAGE_ALBUMS = "GET_HOMEPAGE_ALBUMS"
 export const GET_TOP_LISTENED_TRACKS = "GET_TOP_LISTENED_TRACKS"
 export const LIKED_BUTTON_CLICKED = "LIKED_BUTTON_CLICKED"
 export const UNLIKE_BUTTON_CLICKED = "UNLIKE_BUTTON_CLICKED"
-
-export const addToLikedlist = (data) => {
-  return { type: "ADD_TO_LIKEDLIST", payload: data }
-}
-export const removeFromLikedlist = (i) => {
-  return { type: "REMOVE_FROM_LIKEDLIST", payload: i }
-}
 
 export const likeButtonAction = (track) => {
   return { type: "LIKED_BUTTON_CLICKED", payload: track }
 }
 export const unlikeButtonAction = (track) => {
   return { type: "UNLIKE_BUTTON_CLICKED", payload: track }
+}
+
+export const playButtonAction = (track) => {
+  return { type: "PLAY_BUTTON_CLICKED", payload: track }
 }
 
 const baseEndPoint =

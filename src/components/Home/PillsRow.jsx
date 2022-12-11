@@ -2,10 +2,12 @@
 import React, { useEffect } from "react"
 import { Image } from "react-bootstrap"
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
+import { BsPlayCircleFill } from "react-icons/bs"
 import { useSelector, useDispatch } from "react-redux"
 import {
   getPillsAction,
   likeButtonAction,
+  playButtonAction,
   unlikeButtonAction
 } from "../../redux/actions"
 
@@ -13,17 +15,14 @@ export default function PillsRow() {
   let pills = useSelector((state) => state.pills.pillsListFromFetch)
   console.log("-----pills-------", pills)
   let likedSongs = useSelector((state) => state.likedButtonIndicator.liked)
-
+  let currentTrack = useSelector((state) => state.playSong.song)
+  console.log("-------current track --------", currentTrack)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getPillsAction())
     console.log("-----pills again-------", pills)
   }, [])
-
-  // useEffect(() => {
-  //   dispatch(likeButtonAction())
-  // })
 
   return (
     <>
@@ -32,28 +31,30 @@ export default function PillsRow() {
           <div className="img-container">
             <Image src={track.artist.picture_medium} />
           </div>
-          <div className="track-details">
-            <p className="text">{track.title}</p>
+          <div className="track-details d-flex flex-column">
+            <BsPlayCircleFill
+              className="play-white pointer"
+              onClick={() => dispatch(playButtonAction(track))}
+            />
+            <p className=" pill-text">{track.title}</p>
           </div>
-          {/* <AiOutlineHeart
-            className="ml-auto mr-2"
-            onClick={() => dispatch(likeButtonAction(track))}
-          /> */}
-          {likedSongs.includes(track) ? (
-            <span
-              className="ml-auto mr-2"
-              onClick={() => dispatch(unlikeButtonAction(track))}
-            >
-              <AiFillHeart />
-            </span>
-          ) : (
-            <span
-              className="ml-auto mr-2"
-              onClick={() => dispatch(likeButtonAction(track))}
-            >
-              <AiOutlineHeart />
-            </span>
-          )}
+          <span className="ml-auto mr-2 d-flex">
+            {likedSongs.includes(track) ? (
+              <span>
+                <AiFillHeart
+                  className="pointer"
+                  onClick={() => dispatch(unlikeButtonAction(track))}
+                />
+              </span>
+            ) : (
+              <span>
+                <AiOutlineHeart
+                  className="pointer"
+                  onClick={() => dispatch(likeButtonAction(track))}
+                />
+              </span>
+            )}
+          </span>
         </div>
       ))}
     </>

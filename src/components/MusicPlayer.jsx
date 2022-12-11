@@ -1,17 +1,17 @@
 import React from "react"
 import { Image } from "react-bootstrap"
+import { useSelector } from "react-redux"
 
 export default function MusicPlayer() {
+  let currentTrack = useSelector((state) => state.playSong.song)
+  console.log("-------current track --------", currentTrack)
   return (
     <div className="music-player">
       <div className="album-details">
-        <Image
-          className="album-artwork"
-          src="https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png"
-        />
+        <Image className="album-artwork" src={currentTrack.album.cover} />
         <div className="album-text">
-          <h4>One More Time</h4>
-          <h5>Daft Punk</h5>
+          <h4>{currentTrack.title}</h4>
+          <h5>{currentTrack.artist.name}</h5>
         </div>
         <div className="icons">
           <i className="bi bi-heart"></i>

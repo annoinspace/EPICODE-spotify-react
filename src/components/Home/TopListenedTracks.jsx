@@ -25,7 +25,7 @@ export default function TopListenedTracks() {
             <Image src={track.artist.picture_medium} alt="" />
           </div>
           <div className="card-details">
-            <p className="title">{track.title}</p>
+            <p className="title ">{track.title}</p>
           </div>
         </div>
       ))}

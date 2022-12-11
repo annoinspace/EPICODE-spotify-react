@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { likeButtonAction, unlikeButtonAction } from "../../redux/actions"
+import { unlikeButtonAction } from "../../redux/actions"
 import { FiTrash2 } from "react-icons/fi"
 
 export default function LikedSongs() {
@@ -10,7 +10,7 @@ export default function LikedSongs() {
 
   return (
     <>
-      <div className="navigation">LikedSongs</div>
+      <div className="navigation sidebar-list">LikedSongs</div>
       <ul className="d-block ">
         {likedSongs.map((track, i) => (
           <li key={i} className="d-flex justify-content-between">
@@ -21,7 +21,7 @@ export default function LikedSongs() {
                   className="ml-auto mr-2"
                   onClick={() => dispatch(unlikeButtonAction(track))}
                 >
-                  <FiTrash2 />
+                  <FiTrash2 className="pointer" />
                 </span>
               )}
             </span>
