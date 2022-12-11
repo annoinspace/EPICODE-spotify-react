@@ -1,6 +1,7 @@
 import React from "react"
 import { Image } from "react-bootstrap"
-import spotifyLogo from "../assets/spotify-logo.png"
+import spotifyLogo from "../../assets/spotify-logo.png"
+import LikedSongs from "./LikedSongs"
 import SearchbarNav from "./SearchbarNav"
 
 export default function Sidebar() {
@@ -39,10 +40,11 @@ export default function Sidebar() {
           </li>
 
           <li>
-            <a href="likedsongs">
+            <LikedSongs />
+            {/* <a href="likedsongs">
               <span className="fa fas fa-heart"></span>
               <span>Liked Songs</span>
-            </a>
+            </a> */}
           </li>
         </ul>
       </div>

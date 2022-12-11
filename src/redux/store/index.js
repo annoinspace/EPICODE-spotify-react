@@ -1,14 +1,16 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import homepageAlbumReducer from "../reducers/homepageAlbumReducer"
 import pillsReducer from "../reducers/pillsReducer"
-import playlistReducer from "../reducers/playlistReducer"
 import topListenedTracksReducer from "../reducers/topListenedTracksReducer"
+import likedlistReducer from "../reducers/likedlistReducer"
+import likedButtonReducer from "../reducers/likedButtonReducer"
 
 const bigReducer = combineReducers({
   pills: pillsReducer,
-  playlist: playlistReducer,
+  likedlist: likedlistReducer,
   homepageAlbums: homepageAlbumReducer,
-  topTracks: topListenedTracksReducer
+  topTracks: topListenedTracksReducer,
+  likedButtonIndicator: likedButtonReducer
 })
 
 export const store = configureStore({

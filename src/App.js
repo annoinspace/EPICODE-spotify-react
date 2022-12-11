@@ -4,7 +4,7 @@ import "./css/album.css"
 import "./css/home.css"
 import Homepage from "./components/Home/Homepage"
 import MusicPlayer from "./components/MusicPlayer"
-import Sidebar from "./components/Sidebar"
+import Sidebar from "./components/Sidebar/Sidebar"
 import TopNav from "./components/Home/TopNav"
 
 function App() {

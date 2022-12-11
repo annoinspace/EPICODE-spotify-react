@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Form } from "react-bootstrap"
 import { useDispatch } from "react-redux"
-import { getPillsAction } from "../redux/actions"
+import { getPillsAction } from "../../redux/actions"
 
 const SearchbarNav = () => {
   const [query, setQuery] = useState("")
@@ -13,8 +13,15 @@ const SearchbarNav = () => {
     setQuery(e.target.value)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    dispatch(getPillsAction(query))
+    console.log("--------------search submitted--------------")
+  }
+
   return (
-    <Form onSubmit={dispatch(getPillsAction(query))}>
+    <Form onSubmit={handleSubmit}>
       <Form.Control
         type="search"
         value={query}
